@@ -2,30 +2,33 @@ var bio = {
 	"name" : "Aravind",
 	"role" : "Student",
 	"contacts" : {
-		"ph": "9497354233",
-		"facebook" : "aravindsank",
+		"mobile": "9497354233",
 		"email" : "aravindps1995@gmail.com",
+		"github" : "https://github.com/Aravindps95",
 		"location" : "Palakkad"
 	},
-	"biopic" : "images/aravind.jpg",
-	"msg" : "There's nothing in this world that you can't do",
-	"skills" : ["Acting","Awsomeness","Singing"],
+	"welcomeMessage" : "There's nothing in this world that you can't Achieve",
+	"biopic" : "images/aravindps.jpg",
+	"skills" : ["programming","Acting","Awsomeness","Singing"],
 	display : function(){
 		var formattedName = HTMLheaderName.replace("%data%",bio.name);
 		var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-		var formattedmobile = HTMLmobile.replace("%data%",bio.contacts.ph);
+		var formattedmobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
 		var formattedemail = HTMLemail.replace("%data%",bio.contacts.email);
+		var formattedgithub = HTMLgithub.replace("%data%",bio.contacts.github);
 		var formattedlocation = HTMLlocation.replace("%data%",bio.contacts.location);
 		var formattedbiopic = HTMLbioPic.replace("%data%",bio.biopic);
-		var formattedmsg = HTMLwelcomeMsg.replace("%data%",bio.msg);
+		var formattedmsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
 		$("#header").prepend(formattedRole);
 		$("#header").prepend(formattedName);
 		$('#header').append(formattedbiopic);
 		$('#topContacts').append(formattedmobile);
 		$('#topContacts').append(formattedemail);
+		$('#topContacts').append(formattedgithub);
 		$('#topContacts').append(formattedlocation);
 		$('#footerContacts').append(formattedmobile);
 		$('#footerContacts').append(formattedemail);
+		$('#footerContacts').append(formattedgithub);
 		$('#footerContacts').append(formattedlocation);
 		$('#header').append(formattedmsg);
 		if(bio.skills.length > 0)
@@ -52,13 +55,13 @@ var work = {
 		"Description" : "Not Yet Started Working"
 	},
 	{
-		"employer" : "Mphasys Limited",
+		"employer" : "Mphasis Limited",
 		"title" : "System Engineer",
 		"location" : "Mumbai",
 		"Dates" : "01:02:2017",
 		"Description" : "Not Yet Started Working"
 	}],
-	workdisplay : function(){
+	display : function(){
 		for(job in work.jobs){
 			$("#workExperience").append(HTMLworkStart);
 		var formattedemployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
@@ -70,7 +73,7 @@ var work = {
 		var formatteddate = HTMLworkDates.replace("%data%",work.jobs[job].Dates);
 		$(".work-entry:last").append(formatteddate);
 		var formattedlocation = HTMLworkLocation.replace("%data%",work.jobs[job].location);
-		$(".location-text:last").append(formattedlocation);
+		$(".work-entry:last").append(formattedlocation);
 		var formatteddescription = HTMLworkDescription.replace("%data%",work.jobs[job].Description);
 		$(".work-entry:last").append(formatteddescription);
 		}
@@ -78,7 +81,7 @@ var work = {
 	}
 	
 };
-work.workdisplay();
+work.display();
 var projects= {
 	"allprojects": [{
             "title": "jarvis",
@@ -90,9 +93,9 @@ var projects= {
             "title": "Alumni Spotlight",
             "dates": "30:03:2015",
             "description": "Web Development",
-            "images": ["images/fry.jpg"]
+            "images": ["images/alumni.jpg"]
             }],
-     projectsdisplay : function(){
+     display : function(){
      	$('#projects').append(HTMLprojectStart);
      	for(project in projects.allprojects){
      		var formattedprojectstitle = HTMLprojectTitle.replace("%data%",projects.allprojects[project].title);
@@ -110,37 +113,40 @@ var projects= {
 
      
 };
-projects.projectsdisplay();
+projects.display();
 var education = {
 
 	"schools" : [
 		{
 			"name" : "Govy Engg College,Sreekrishnapuram",
-			"major" : ["Computer Science"],
 			"location" : "Palakkad",
 			"degree" : "B.Tech",
-			"dates" : "25:05:2016"
+			"majors" : ["Computer Science"],
+			"dates" : "25:05:2016",
+			"url" : "http://www.gecskp.ac.in/"
 		},
 		{
 			"name" : "amrita vidyalayam",
-			"major" : ["Inforatics Practices"],
 			"location" : "Palakkad",
 			"degree" : "+2",
-			"dates" : "25:03:2012"
+			"majors" : ["Inforatics Practices"],
+			"dates" : "25:03:2012",
+			"url" : "http://plkd.amritavidyalayam.org/"
 		},
 		{
 			"name" :"bappuji",
-			"major" : "General",
 			"location" : "Thrissur",
 			"degree" : "LP",
-			"dates" : "28:09:2002"
+			"majors" : "General",
+			"dates" : "28:09:2002",
+			"url" : "http://www.icbse.com/schools/bappuji-english-medium-school/32061000113"
 		}
 
 
 		],
 	"onlineCourses" : {
 	"title" : "Web development",
-	"organisation" : "udacity",
+	"school" : "udacity",
 	"dates" : "24:09:2016",
 	"url" : "http://www.udacity.com/nanodegrees/nd001"},
 	educationdisplay : function(){
@@ -151,7 +157,7 @@ var education = {
 			var formattedschooldegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
 			var formattedschooldates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
 			var formattedschoollocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
-			var formattedschoolmajor = HTMLschoolMajor.replace("%data%",education.schools[school].major);
+			var formattedschoolmajor = HTMLschoolMajor.replace("%data%",education.schools[school].majors);
 			var formattedschoolinfo=formattedschoolname + formattedschooldegree + formattedschooldates + formattedschoollocation + formattedschoolmajor;
 			
 			
@@ -161,7 +167,7 @@ var education = {
 		var formattedonlineHeader = HTMLonlineClasses;
 		$(".education-entry:last").append(formattedonlineHeader);
 			var formattedonlinetitle = HTMLonlineTitle.replace("%data%",education.onlineCourses.title);
-			var formattedorganisation = HTMLonlineSchool.replace("%data%",education.onlineCourses.organisation);
+			var formattedorganisation = HTMLonlineSchool.replace("%data%",education.onlineCourses.school);
 			var formattedonlinedates = HTMLonlineDates.replace("%data%",education.onlineCourses.dates);
 			var formattedurl = HTMLonlineURL.replace("%data%",education.onlineCourses.url);
 			var formattedonlineinfo = formattedonlinetitle + formattedorganisation + formattedonlinedates + formattedurl;
