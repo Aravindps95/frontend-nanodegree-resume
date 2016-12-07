@@ -165,5 +165,4 @@ function displayonline() {
     });
 }
 displayonline();
-
 $("#mapDiv").append(googleMap);
